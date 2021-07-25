@@ -2,7 +2,6 @@ from django.dispatch import receiver
 from allauth.account.signals import user_signed_up
 from allauth.socialaccount.signals import social_account_added, social_account_updated, social_account_removed
 from allauth.socialaccount.models import SocialAccount, SocialToken
-from .models import User
 import re
 
 @receiver(user_signed_up)

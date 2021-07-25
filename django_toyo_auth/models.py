@@ -1,11 +1,11 @@
 from django.db import models
 from uuid import uuid4
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser as DjangoAbstractUser
 from django.utils import timezone
 
 
 # Create your models here.
-class User(AbstractUser):
+class AbstractUser(DjangoAbstractUser):
     uuid = models.UUIDField(primary_key=True, editable=False, default=uuid4, verbose_name="UUID")
     student_id = models.CharField(max_length=10, default="", null=True, blank=True, verbose_name="学籍番号")
     entry_year = models.IntegerField(null=True, blank=True, verbose_name="入学年度")
@@ -14,6 +14,7 @@ class User(AbstractUser):
 
     class Meta:
         ordering = ["-created_at"]
+        abstract = True
 
     def get_school_year(self):
         if self.is_student:
