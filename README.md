@@ -17,7 +17,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_toyo_auth', # Offers Custom UserModel
+    'django_toyo_auth',
     'django_toyo_auth.providers.iniad', # INIAD Account
     'django_toyo_auth.providers.toyo', # Toyo Account
     ...
@@ -46,8 +46,6 @@ SOCIALACCOUNT_PROVIDERS = {
         },
     },
 }
-
-AUTH_USER_MODEL = 'django_toyo_auth.User' # Use custom user model with student id (Optional)
 ```
 
 ### urls.py
@@ -58,6 +56,24 @@ urlpatterns = [
     ...
 ]
 ```
+
+## Classes
+### django_toyo_auth.models.AbstractUser
+User class with student_id, entry_year, is_student
+#### Attributes
+* student_id
+* entry_year
+* is_student
+
+#### methods
+* get_school_year() => int
+
+### django_toyo_auth.models.UUIDAbstractUser
+Inherits all attributes and methods from [AbstractUser](django_toyo_auth.models.AbstractUser), 
+but also primary_key is UUID
+#### Attributes
+* uuid
+
 
 ## Details
 It offers only providers and custom models for django-allauth.
