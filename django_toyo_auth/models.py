@@ -6,7 +6,6 @@ from django.utils import timezone
 
 # Create your models here.
 class AbstractUser(DjangoAbstractUser):
-    uuid = models.UUIDField(primary_key=True, editable=False, default=uuid4, verbose_name="UUID")
     student_id = models.CharField(max_length=10, default="", null=True, blank=True, verbose_name="学籍番号")
     entry_year = models.IntegerField(null=True, blank=True, verbose_name="入学年度")
     created_at = models.DateTimeField(default=timezone.localtime, verbose_name="作成日")
@@ -22,3 +21,11 @@ class AbstractUser(DjangoAbstractUser):
             return today.year - self.entry_year + (1 if today.month > 3 else 2)
         else:
             return None
+
+
+class UUIDAbstractUser(AbstractUser):
+    uuid = models.UUIDField(primary_key=True, editable=False, default=uuid4, verbose_name="UUID")
+
+    class Meta:
+        ordering = ["-created_at"]
+        abstract = True
