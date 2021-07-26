@@ -83,5 +83,5 @@ Please see [django-allauth documents](https://django-allauth.readthedocs.io/en/l
 * [Django](https://docs.djangoproject.com/)
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
 
-## Licenses
+## License
 MIT
