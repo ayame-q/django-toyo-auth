@@ -59,11 +59,13 @@ urlpatterns = [
 
 ## Classes
 ### django_toyo_auth.models.AbstractUser
-User class with student_id, entry_year, is_student
+User class with student_id, entry_year, is_student, is_toyo_member, is_iniad_member
 #### Attributes
 * student_id
 * entry_year
 * is_student
+* is_toyo_member
+* is_iniad_member
 
 #### methods
 * get_school_year() => int

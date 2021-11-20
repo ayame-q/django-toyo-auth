@@ -1,5 +1,5 @@
 __copyright__    = 'Copyright (C) 2021 ayame.space'
-__version__      = '0.2.0'
+__version__      = '0.3.0'
 __license__      = 'MIT'
 __author__       = 'ayame.space'
 __author_email__ = 'ayame.space@gmail.com'

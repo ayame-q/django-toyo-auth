@@ -112,6 +112,13 @@ class ToyoMail:
 
 class ToyoAccount(GoogleAccount):
     toyo_mail_class = ToyoMail
+
+    def get_is_toyo_member(self):
+        return self.account.extra_data.get("is_toyo_member")
+
+    def get_is_iniad_member(self):
+        return self.account.extra_data.get("is_iniad_member")
+
     def get_is_student(self):
         return self.account.extra_data.get("is_student")
 
@@ -157,6 +164,8 @@ class ToyoProvider(GoogleProvider):
         ret = super(ToyoProvider, self).extract_extra_data(data)
         toyo_mail = self.toyo_mail_class(data.get("email"))
         ret.update({
+            "is_toyo_member": True,
+            "is_iniad_member": False,
             "is_student": toyo_mail.get_is_student(),
             "student_id": toyo_mail.get_student_id(),
             "faculty": toyo_mail.get_faculty(),

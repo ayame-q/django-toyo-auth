@@ -42,6 +42,7 @@ class INIADProvider(ToyoProvider):
         ret = super(INIADProvider, self).extract_extra_data(data)
         toyo_mail = self.toyo_mail_class(data.get("email"))
         ret.update({
+            "is_iniad_member": True,
             "entry_class": toyo_mail.get_entry_class(),
         })
         return ret

@@ -10,6 +10,10 @@ def signed_up(user, **kwargs):
     social_token = SocialToken.objects.filter(account=social_info)[0]
     if social_info.provider in ["iniad", "toyo"]:
         user.is_student = social_info.extra_data["is_student"]
+        if not user.is_toyo_member:
+            user.is_toyo_member = social_info.extra_data["is_toyo_member"]
+        if not user.is_iniad_member:
+            user.is_iniad_member = social_info.extra_data["is_iniad_member"]
         user.student_id = social_info.extra_data["student_id"]
         user.entry_year = social_info.extra_data["entry_year"]
         user.save()
@@ -21,6 +25,10 @@ def account_added(request, sociallogin, **kwargs):
     social_token = sociallogin.token
     if social_info.provider in ["iniad", "toyo"]:
         user.is_student = social_info.extra_data["is_student"]
+        if not user.is_toyo_member:
+            user.is_toyo_member = social_info.extra_data["is_toyo_member"]
+        if not user.is_iniad_member:
+            user.is_iniad_member = social_info.extra_data["is_iniad_member"]
         user.student_id = social_info.extra_data["student_id"]
         user.entry_year = social_info.extra_data["entry_year"]
         user.save()

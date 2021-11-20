@@ -10,6 +10,8 @@ class AbstractUser(DjangoAbstractUser):
     entry_year = models.IntegerField(null=True, blank=True, verbose_name="入学年度")
     created_at = models.DateTimeField(default=timezone.localtime, verbose_name="作成日")
     is_student = models.BooleanField(default=False, verbose_name="学生か")
+    is_toyo_member = models.BooleanField(default=False, verbose_name="東洋大学内者か")
+    is_iniad_member = models.BooleanField(default=False, verbose_name="INIAD学内者か")
 
     class Meta:
         ordering = ["-created_at"]
