@@ -12,15 +12,16 @@ class AbstractUser(DjangoAbstractUser):
     is_student = models.BooleanField(default=False, verbose_name="学生か")
     is_toyo_member = models.BooleanField(default=False, verbose_name="東洋大学内者か")
     is_iniad_member = models.BooleanField(default=False, verbose_name="INIAD学内者か")
+    grade_gap = models.IntegerField(default=0, verbose_name="ストレートとの学年の差")
 
     class Meta:
         ordering = ["-created_at"]
         abstract = True
 
-    def get_school_year(self):
+    def get_grade(self):
         if self.is_student:
             today = timezone.localdate()
-            return today.year - self.entry_year + (1 if today.month > 3 else 2)
+            return today.year - self.entry_year + (1 if today.month > 3 else 2) + self.grade_gap
         else:
             return None
 

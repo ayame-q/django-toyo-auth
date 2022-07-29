@@ -66,9 +66,10 @@ User class with student_id, entry_year, is_student, is_toyo_member, is_iniad_mem
 * is_student
 * is_toyo_member
 * is_iniad_member
+* grade_gap
 
 #### methods
-* get_school_year() => int
+* get_grade() => int
 
 ### django_toyo_auth.models.UUIDAbstractUser
 Inherits all attributes and methods from [AbstractUser](django_toyo_auth.models.AbstractUser), 
