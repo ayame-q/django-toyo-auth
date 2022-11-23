@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "django_toyo_auth"
+version = "0.0.0"
+description = "It offers providers of Toyo University and INIAD Accounts for django-allauth"
+authors = ["ayame.space <ayame.space@gmail.com>"]
+license = "MIT"
+readme = 'README.md'
+homepage = "http://github.com/ayame-q/django-toyo-auth"
+repository = "http://github.com/ayame-q/django-toyo-auth"
+documentation = "https://github.com/ayame-q/django-toyo-auth#readme"
+keywords = ['django-allauth', 'django', 'INIAD', 'Toyo Univ', '東洋大学']
+include = ["LICENSE", "README.md"]
+classifiers = [
+  'License :: OSI Approved :: MIT License',
+  'Programming Language :: Python',
+  'Programming Language :: Python :: 3',
+  'Programming Language :: Python :: 3.6',
+  'Programming Language :: Python :: 3.7',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Framework :: Django',
+  'Framework :: Django :: 3.0',
+  'Framework :: Django :: 3.1',
+  'Framework :: Django :: 3.2',
+  'Framework :: Django :: 4.0',
+  'Framework :: Django :: 4.1',
+  'Topic :: Education',
+  'Topic :: System :: Systems Administration :: Authentication/Directory',
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+Django = "*"
+django-allauth = "*"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+latest-tag = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
