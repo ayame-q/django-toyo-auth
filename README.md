@@ -1,13 +1,17 @@
+# Django Toyo Auth
+
 "Django Toyo Auth" offers providers of Toyo University Accounts(@toyo.jp) and INIAD Accounts(@iniad.org) for [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
 
-
 ## Installation
+
 ### Install Package
+
 ```bash
 pip install django-toyo-auth
 ```
 
 ### settings.py
+
 ```python
 INSTALLED_APPS = [
     ...
@@ -49,6 +53,7 @@ SOCIALACCOUNT_PROVIDERS = {
 ```
 
 ### urls.py
+
 ```python
 urlpatterns = [
     ...
@@ -58,30 +63,39 @@ urlpatterns = [
 ```
 
 ## Classes
+
 ### django_toyo_auth.models.AbstractUser
+
 User class with student_id, entry_year, is_student, is_toyo_member, is_iniad_member
+
 #### Attributes
-* student_id
-* entry_year
-* is_student
-* is_toyo_member
-* is_iniad_member
-* grade
+
+- student_id
+- entry_year
+- is_student
+- is_toyo_member
+- is_iniad_member
+- grade
 
 ### django_toyo_auth.models.UUIDAbstractUser
-Inherits all attributes and methods from [AbstractUser](django_toyo_auth.models.AbstractUser), 
-but also primary_key is UUID
-#### Attributes
-* uuid
 
+Inherits all attributes and methods from [AbstractUser](django_toyo_auth.models.AbstractUser),
+but also primary_key is UUID
+
+#### Attributes
+
+- uuid
 
 ## Details
+
 It offers only providers and custom models for django-allauth.
 Please see [django-allauth documents](https://django-allauth.readthedocs.io/en/latest/index.html) for detail
 
 ## Requirements
-* [Django](https://docs.djangoproject.com/)
-* [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
+
+- [Django](https://docs.djangoproject.com/)
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
 
 ## License
+
 MIT
