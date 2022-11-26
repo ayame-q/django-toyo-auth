@@ -86,6 +86,16 @@ but also primary_key is UUID
 
 - uuid
 
+### django_toyo_auth.admin.ToyoUserAdmin
+
+ModelAdmin class for [AbstractUser](#django_toyo_auth.models.AbstractUser).
+It offers user-friendly admin pages.
+
+### django_toyo_auth.admin.UUIDToyoUserAdmin
+
+ModelAdmin class for [UUIDAbstractUser](#django_toyo_auth.models.UUIDAbstractUser).
+It offers user-friendly admin pages.
+
 ## Details
 
 It offers only providers and custom models for django-allauth.

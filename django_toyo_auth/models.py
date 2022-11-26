@@ -32,6 +32,7 @@ class AbstractUser(DjangoAbstractUser):
             today = timezone.localdate()
             self._grade_gap = grade - (today.year - self.entry_year + (1 if today.month > 3 else 2))
 
+    grade.fget.short_description = "学年"
 
 class UUIDAbstractUser(AbstractUser):
     uuid = models.UUIDField(primary_key=True, editable=False, default=uuid4, verbose_name="UUID")
