@@ -79,7 +79,7 @@ User class with student_id, entry_year, is_student, is_toyo_member, is_iniad_mem
 
 ### django_toyo_auth.models.UUIDAbstractUser
 
-Inherits all attributes and methods from [AbstractUser](#django_toyo_auth.models.AbstractUser),
+Inherits all attributes and methods from [AbstractUser](#django_toyo_authmodelsabstractuser),
 but also primary_key is UUID
 
 #### Attributes
@@ -88,12 +88,12 @@ but also primary_key is UUID
 
 ### django_toyo_auth.admin.ToyoUserAdmin
 
-ModelAdmin class for [AbstractUser](#django_toyo_auth.models.AbstractUser).
+ModelAdmin class for [AbstractUser](#django_toyo_authmodelsabstractuser).
 It offers user-friendly admin pages.
 
 ### django_toyo_auth.admin.UUIDToyoUserAdmin
 
-ModelAdmin class for [UUIDAbstractUser](#django_toyo_auth.models.UUIDAbstractUser).
+ModelAdmin class for [UUIDAbstractUser](#django_toyo_authmodelsuuidabstractuser).
 It offers user-friendly admin pages.
 
 ## Details
