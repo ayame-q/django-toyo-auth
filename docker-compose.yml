@@ -1,0 +1,40 @@
+version: "3"
+services:
+  django:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy # postgresが正常に起動していることを確認
+    env_file:
+      - ".env"
+    environment:
+      DEBUG: ${DEBUG-true}
+      DJANGO_SETTINGS_MODULE: development.settings
+      DATABASE_ENGINE: ${DATABASE_ENGINE-postgres}
+      DATABASE_HOST: ${DATABASE_HOST-postgres}
+      DATABASE_PORT: ${DATABASE_PORT-5432}
+      DATABASE_NAME: ${DATABASE_NAME-toyoauth}
+      DATABASE_USER: ${DATABASE_USER-postgres}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD-default}
+    volumes:
+      - "./:/usr/src/app"
+    ports:
+      - "${PORT-80}:8000"
+  postgres:
+    image: postgres:12-alpine
+    healthcheck: # postgresのヘルスチェック設定
+      test: ["CMD-SHELL", "pg_isready --username=${DATABASE_USER-postgres}"]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME-toyoauth}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD-default}
+    env_file:
+      - ".env"
+    volumes:
+      - database:/var/lib/postgresql/data
+
+volumes:
+  database:
+    driver: local

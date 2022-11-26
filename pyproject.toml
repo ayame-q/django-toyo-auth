@@ -35,6 +35,9 @@ python = "^3.6"
 Django = "*"
 django-allauth = "*"
 
+[tool.poetry.group.dev.dependencies]
+psycopg2-binary = "^2.9.5"
+
 [tool.poetry-dynamic-versioning]
 enable = true
 vcs = "git"
