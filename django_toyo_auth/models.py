@@ -22,7 +22,7 @@ class AbstractUser(DjangoAbstractUser):
     def grade(self):
         if self.is_student:
             today = timezone.localdate()
-            return today.year - self.entry_year + (1 if today.month > 3 else 2) + self._grade_gap
+            return today.year - self.entry_year + (1 if today.month > 3 else 0) + self._grade_gap
         else:
             return None
 
@@ -30,7 +30,7 @@ class AbstractUser(DjangoAbstractUser):
     def grade(self, grade):
         if self.grade != grade:
             today = timezone.localdate()
-            self._grade_gap = grade - (today.year - self.entry_year + (1 if today.month > 3 else 2))
+            self._grade_gap = grade - (today.year - self.entry_year + (1 if today.month > 3 else 0))
 
     grade.fget.short_description = "学年"
 
